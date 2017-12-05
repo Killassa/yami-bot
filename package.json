@@ -1,0 +1,19 @@
+{
+  "name": "Yami",
+  "version": "1.0.0",
+  "description": "My own Discord bot",
+  "main": "bot.js",
+  "author": "Killassa",
+  "dependencies": {
+    "discord.io": "^2.5.3",
+    "discord.js": "^11.2.1",
+    "discord.js-music-v11": "^1.3.4",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-binaries": "^3.2.2-3",
+    "node-gyp": "^3.6.2",
+    "opusscript": "0.0.4",
+    "rebuild": "^0.1.2",
+    "winston": "^2.4.0",
+    "ytdl-core": "^0.18.2"
+  }
+}
