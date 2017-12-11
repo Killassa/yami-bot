@@ -20,7 +20,7 @@ bot.login(process.env.token);
 bot.on('message', message => {
     if (message.content.startsWith('<@'+ bot.user.id +'>')) {
         var args = message.content.split(' '); //Split le message envoyé par l'utilisateur en plusieurs parties
-        var cmd = args[1];      //Récupère la 2ème partie du message
+        var cmd = args[1].toLowerCase();      //Récupère la 2ème partie du message
         var suffix = args[2];   //Récupère la 3ème partie du message
         var ChannelVocale = message.member.voiceChannel;    //Récupère le channel dans lequel se trouve l'utilisateur envoyant le message
         var Dossier;    //Variable pour stocker le dossier dans lequel nous devons chercher l'image
@@ -50,6 +50,15 @@ bot.on('message', message => {
                                     message.channel.send(embed).then(() => {
                                         const stream = ytdl(suffix, { filter: 'audioonly' });
                                         const dispatcher = connection.playStream(stream, {seek: 0, volume: (5/100)});
+                                        dispatcher.on('end', () => {
+                                            bot.voiceConnections.forEach( call => {
+                                                if(call.channel.guild.id == message.guild.id)
+                                                {
+                                                    call.disconnect();
+                                                }
+                                            });
+                                            message.channel.send(greenColor('See you later!'));
+                                        });
                                     });
                                 }).catch(console.log);
                         });
@@ -128,6 +137,15 @@ bot.on('message', message => {
                                 message.channel.send(embed).then(() => {
                                     const stream = ytdl(MusiqueChoisie, { filter: 'audioonly' });
                                     const dispatcher = connection.playStream(stream, {seek: 0, volume: (5/100)});
+                                    dispatcher.on('end', () => {
+                                        bot.voiceConnections.forEach( call => {
+                                            if(call.channel.guild.id == message.guild.id)
+                                            {
+                                                call.disconnect();
+                                            }
+                                        });
+                                        message.channel.send(greenColor('See you later!'));
+                                    });
                                 });
                             }).catch(console.log);
                         });
@@ -182,7 +200,7 @@ bot.on('message', message => {
 
             //Affiche l'avatar du bot
             case 'avatar':
-                message.channel.sendFile('./Images/Avatar/YamiAvatar.jpg');
+                 message.channel.send(bot.user.avatarURL);
             break;
 
             //Affiche la liste des commandes
@@ -192,7 +210,7 @@ bot.on('message', message => {
 
             //Explique le fonctionnement de la commande
             case 'commandinfo':
-                getCommandInfo(message, suffix);
+                getCommandInfo(message, suffix.toLowerCase());
             break;
             
             //Affiche aléatoirement une image de yami
