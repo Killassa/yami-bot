@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const config = require('./config.json');
 const ytdl = require('ytdl-core');
 const bot = new Discord.Client();
 
@@ -16,7 +15,7 @@ bot.on('ready', () => {
     })
 });
 
-bot.login(config.token);
+bot.login(process.env.token);
 
 bot.on('message', message => {
     if (message.content.startsWith('<@'+ bot.user.id +'>')) {
