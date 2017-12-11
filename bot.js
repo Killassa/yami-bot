@@ -224,7 +224,7 @@ bot.on('message', message => {
             case 'nekogirl':
                 Dossier = 'Nekogirl';
                 Extension = '.jpg';
-                getImageDir(message, Dossier, 12, 'Just a pic of a nekogirl', Extension);
+                getImageDir(message, Dossier, 57, 'Just a pic of a nekogirl', Extension);
             break;
 
             //Affiche aléatoirement une image de chat
