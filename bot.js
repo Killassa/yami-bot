@@ -16,7 +16,7 @@ bot.on('ready', () => {
     })
 });
 
-bot.login(token);
+bot.login(config.token);
 
 bot.on('message', message => {
     if (message.content.startsWith('<@'+ bot.user.id +'>')) {
