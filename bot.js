@@ -57,7 +57,6 @@ bot.on('message', message => {
                                                     call.disconnect();
                                                 }
                                             });
-                                            message.channel.send(greenColor('See you later!'));
                                         });
                                     });
                                 }).catch(console.log);
@@ -144,7 +143,6 @@ bot.on('message', message => {
                                                 call.disconnect();
                                             }
                                         });
-                                        message.channel.send(greenColor('See you later!'));
                                     });
                                 });
                             }).catch(console.log);
@@ -271,6 +269,16 @@ bot.on('message', message => {
                 });
 
                 message.channel.send(MonMessage);
+            break;
+
+            //Affiche le lien du site pour inviter le bot
+            case 'invite':
+                const embed = new Discord.RichEmbed()
+                .setTitle('Invite me here:')
+                .setAuthor('Yami.', bot.user.avatarURL)
+                .setColor('#FEFE01')
+                .setDescription('http://phmspiuo.preview.infomaniak.website/');
+                return message.channel.send({embed});
             break;
 
             //Si la commande n'exite pas
@@ -407,7 +415,12 @@ function getCommandInfo(message, suffix) {
 
 
         case 'dwrite':
-            CommandExplication = 'Just write my name + dwrite and add your message like : \n@Yami dwrite I\m Yami';
+            CommandExplication = 'Just write my name + dwrite and add your message like : \n@Yami dwrite I\'m Yami';
+        break;
+
+
+        case 'invite':
+            CommandExplication = 'Just write my name + invite like : \n@Yami invite';
         break;
 
 
