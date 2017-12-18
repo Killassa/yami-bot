@@ -250,7 +250,7 @@ bot.on('message', message => {
             case 'kiss':
                 Dossier = 'Kiss';
                 Extension = '.gif';
-                getImageDir(message, Dossier, 14, 'Just a gif of a kiss', Extension);
+                getImageDir(message, Dossier, 16, 'Just a gif of a kiss', Extension);
             break;
 
             //Demander à Yami d'écrire et supprime le message utilisateur après
