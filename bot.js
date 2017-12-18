@@ -40,7 +40,7 @@ bot.on('message', message => {
                         ytdl.getInfo(suffix, function(err, info){
                             TitreYtb = info.title;
                         
-                            const embed = new Discord.RichEmbed()
+                            var embed = new Discord.RichEmbed()
                             .setTitle('Now Playing :')
                             .setColor('#FEFE01')
                             .setDescription(orangeColor(TitreYtb));
@@ -126,7 +126,7 @@ bot.on('message', message => {
                         ytdl.getInfo(MusiqueChoisie, function(err, info){
                             TitreYtb = info.title
 
-                            const embed = new Discord.RichEmbed()
+                            var embed = new Discord.RichEmbed()
                             .setTitle('Now Playing: ' + TitreYtb)
                             .setColor('#FEFE01')
                             .setDescription(orangeColor(TitreYtb));
@@ -273,7 +273,7 @@ bot.on('message', message => {
 
             //Affiche le lien du site pour inviter le bot
             case 'invite':
-                const embed = new Discord.RichEmbed()
+                var embed = new Discord.RichEmbed()
                 .setTitle('Invite me here:')
                 .setAuthor('Yami.', bot.user.avatarURL)
                 .setColor('#FEFE01')
@@ -283,7 +283,7 @@ bot.on('message', message => {
 
             //Si la commande n'exite pas
             default :
-                const embed = new Discord.RichEmbed()
+                var embed = new Discord.RichEmbed()
                 .setTitle('This is not one of my commands.')
                 .setAuthor('Yami.', bot.user.avatarURL)
                 .setColor('#FEFE01');
@@ -316,13 +316,13 @@ function turquoiseColor(test) {
 function getBotInfo(message) {
     var retourLigne = '\n';
 
-    const embed = new Discord.RichEmbed()
+    var embed = new Discord.RichEmbed()
         .setTitle('Here you can see all my commands :')
         .setAuthor('Hi! I\'m Yami.', bot.user.avatarURL)
         .setColor('#FEFE01')
         .setDescription('Details of my commands with commandinfo.')
         .addBlankField(true)
-        .addField('**YAMI**', orangeColor('help, avatar, commandinfo'))
+        .addField('**YAMI**', orangeColor('help, avatar, commandinfo, invite'))
         .addBlankField(true)
         .addField('**MUSIC**', orangeColor('play, leave, list, playlist, addplaylist, delplaylist'))
         .addBlankField(true)
@@ -429,7 +429,7 @@ function getCommandInfo(message, suffix) {
     }        
 
     if(CommandExist == true){
-        const embed = new Discord.RichEmbed()
+        var embed = new Discord.RichEmbed()
             .setTitle('Here is the detail of my ' + suffix + ' command :')
             .setAuthor('Yami.', bot.user.avatarURL)
             .setColor('#FEFE01')
@@ -439,7 +439,7 @@ function getCommandInfo(message, suffix) {
         return message.channel.send({embed});
     }
     else{
-        const embed = new Discord.RichEmbed()
+        var embed = new Discord.RichEmbed()
             .setTitle('This is not one of my commands.')
             .setAuthor('Yami.', bot.user.avatarURL)
             .setColor('#FEFE01');
@@ -453,7 +453,7 @@ function getImageDir(message, directory, nombre, title, extension){
     var random = Math.floor((Math.random() * nombre) + 1);
     var image = 'http://phmspiuo.preview.infomaniak.website/' + directory + '/' + directory + '%20(' + random + ')' + extension;
 
-    const embed = new Discord.RichEmbed()
+    var embed = new Discord.RichEmbed()
     .setTitle(title)
     .setAuthor('Yami.', bot.user.avatarURL)
     .setColor('#FEFE01')
