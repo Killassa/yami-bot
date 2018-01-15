@@ -253,6 +253,19 @@ bot.on('message', message => {
                 getImageDir(message, Dossier, 16, 'Just a gif of a kiss', Extension);
             break;
 
+            //Affiche aléatoirement une image hentai
+            case 'hentai':
+                if(message.channel.nsfw == false){
+                    message.channel.send(greenColor('This channel isn\'t marked as NSFW.'));
+                }
+                else
+                {
+                    Dossier = 'Hentai';
+                    Extension = '.jpg';
+                    getImageDir(message, Dossier, 16, 'Just a hentai pic', Extension);
+                }
+            break;
+
             //Demander à Yami d'écrire et supprime le message utilisateur après
             case 'dwrite':
                 var MonMessage = "";
@@ -411,6 +424,11 @@ function getCommandInfo(message, suffix) {
 
         case 'kiss':
             CommandExplication = 'Just write my name + kiss like : \n@Yami kiss';
+        break;
+
+
+        case 'hentai':
+            CommandExplication = 'You need an NSFW channel for this command. \nThen, just write my name + hentai like : \n@Yami hentai';
         break;
 
 
