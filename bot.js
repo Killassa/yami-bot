@@ -32,18 +32,18 @@ bot.on('message', message => {
             case 'play':
                 if(testYtbUrl(suffix))
                 {
-                    var TitreYtb;
+                    //var TitreYtb;
                     if (!ChannelVocale){
                         return message.reply(`Please be in a voice channel first!`);
                     }
                     else{
                         ytdl.getInfo(suffix, function(err, info){
-                            TitreYtb = info.title;
+                            //TitreYtb = info.title;
                         
                             var embed = new Discord.RichEmbed()
                             .setTitle('Now Playing :')
-                            .setColor('#FEFE01')
-                            .setDescription(orangeColor(TitreYtb));
+                            .setColor('#FEFE01');
+                            //.setDescription(orangeColor(TitreYtb));
 
                             ChannelVocale.join()
                                 .then(connection => {
