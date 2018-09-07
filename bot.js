@@ -32,18 +32,18 @@ bot.on('message', message => {
             case 'play':
                 if(testYtbUrl(suffix))
                 {
-                    //var TitreYtb;
+                    var TitreYtb;
                     if (!ChannelVocale){
                         return message.reply(`Please be in a voice channel first!`);
                     }
                     else{
                         ytdl.getInfo(suffix, function(err, info){
-                            //TitreYtb = info.title;
+                            TitreYtb = info.title;
                         
                             var embed = new Discord.RichEmbed()
                             .setTitle('Now Playing :')
-                            .setColor('#FEFE01');
-                            //.setDescription(orangeColor(TitreYtb));
+                            .setColor('#FEFE01')
+                            .setDescription(TitreYtb);
 
                             ChannelVocale.join()
                                 .then(connection => {
@@ -307,7 +307,7 @@ bot.on('message', message => {
 
 //Fonction wrap du texte
 function wrap(text) {
-	return '```\n' + text.replace(/`/g, '`' + String.fromCharCode(8203)) + '\n```';
+    return '```\n' + text.replace(/`/g, '`' + String.fromCharCode(8203)) + '\n```';
 };
 
 //Fonction qui change la couleur du texte en vert
@@ -321,8 +321,13 @@ function orangeColor(text) {
 };
 
 //Fontion qui change la couleur du texte en turquoise
-function turquoiseColor(test) {
+function turquoiseColor(text) {
     return '```dsconfig\n' + text.replace(/`/g, '`' + String.fromCharCode(8203)) + '\n```'; 
+};
+
+//Fontion qui change la couleur du texte en bleu
+function blueColor(text) {
+    return '```AsciiDoc\n' + text.replace(/`/g, '`' + String.fromCharCode(8203)) + '\n```'; 
 };
 
 ///Fonction qui retourne la liste des commandes
@@ -483,7 +488,7 @@ function getImageDir(message, directory, nombre, title, extension){
 //Fonction qui permet de retourner une erreur si la valeur n'est pas un int
 function TryParseInt(str, defaultValue) {
     var retValue = defaultValue;
-    if(str !== null) {
+    if(str != null) {
         if(str.length > 0) {
             if (!isNaN(str)) {
                 retValue = parseInt(str);
