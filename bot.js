@@ -43,7 +43,7 @@ bot.on('message', message => {
                             var embed = new Discord.RichEmbed()
                             .setTitle('Now Playing :')
                             .setColor('#FEFE01')
-                            .setDescription(TitreYtb);
+                            .setDescription(orangeColor(TitreYtb));
 
                             ChannelVocale.join()
                                 .then(connection => {
@@ -127,7 +127,7 @@ bot.on('message', message => {
                             TitreYtb = info.title
 
                             var embed = new Discord.RichEmbed()
-                            .setTitle('Now Playing: ' + TitreYtb)
+                            .setTitle('Now Playing:')
                             .setColor('#FEFE01')
                             .setDescription(orangeColor(TitreYtb));
                         
