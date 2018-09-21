@@ -215,7 +215,7 @@ bot.on('message', message => {
             case 'yami':
                 Dossier = 'Yami';
                 Extension = '.jpg';
-                getImageDir(message, Dossier, 37, 'Just a pic of me', Extension);
+                getImageDir(message, Dossier, 36, 'Just a pic of me', Extension);
             break;
 
             //Affiche aléatoirement une image de nekogirl
@@ -229,7 +229,7 @@ bot.on('message', message => {
             case 'neko':
                 Dossier = 'Neko';
                 Extension = '.jpg';
-                getImageDir(message, Dossier, 14, 'Just a pic of a neko', Extension);
+                getImageDir(message, Dossier, 8, 'Just a pic of a neko', Extension);
             break;
 
             //Affiche aléatoirement une scène de "baka"
@@ -243,14 +243,14 @@ bot.on('message', message => {
             case 'insult':
                 Dossier = 'Insult';
                 Extension = '.gif';
-                getImageDir(message, Dossier, 14, 'Just a gif of an insult', Extension);
+                getImageDir(message, Dossier, 9, 'Just a gif of an insult', Extension);
             break;
 
             //Affiche aléatoirement une scène de "kiss"
             case 'kiss':
                 Dossier = 'Kiss';
                 Extension = '.gif';
-                getImageDir(message, Dossier, 16, 'Just a gif of a kiss', Extension);
+                getImageDir(message, Dossier, 18, 'Just a gif of a kiss', Extension);
             break;
 
             //Affiche aléatoirement une image hentai
@@ -498,7 +498,7 @@ function TryParseInt(str, defaultValue) {
     return retValue;
 }
 
-//Fonction pour test l'url youtube
+//Fonction pour test l'url Youtube
 function testYtbUrl(url) {
     return ytdl.validateURL(url);
 }
