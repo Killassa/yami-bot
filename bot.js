@@ -262,7 +262,7 @@ bot.on('message', message => {
                 {
                     Dossier = 'Hentai';
                     Extension = '.jpg';
-                    getImageDir(message, Dossier, 16, 'Just a hentai pic', Extension);
+                    getImageDir(message, Dossier, 61, 'Just a hentai pic', Extension);
                 }
             break;
 
